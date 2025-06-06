@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang='uk'>
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+  <title>Starry Sky Зарядка</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background-color: #000; color: #fff; scroll-behavior: smooth; }
+    section { padding: 40px 20px; text-align: center; }
+    img { width: 100%; display: block; max-width: 600px; margin: 0 auto; }
+    h2 { font-size: 6vw; margin-bottom: 20px; }
+    label { display: block; text-align: left; margin: 8px 0 4px; font-size: 4vw; }
+    input, select, button {
+      width: 100%; padding: 10px; margin-bottom: 20px;
+      border: none; border-radius: 6px; font-size: 4.5vw;
+    }
+    button {
+      background-color: #e50914; color: white; cursor: pointer;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: #e50914; color: white;
+      padding: 12px 20px; font-size: 4.5vw;
+      border-radius: 6px; text-decoration: none;
+    }
+
+    @media (min-width: 768px) {
+      h2 { font-size: 28px; }
+      label { font-size: 16px; }
+      input, select, button, .cta-button { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<section id='main'>
+  <img src='img/final_landing_with_advantages.png' alt='Головне фото'>
+  <br>
+  <a onclick='scrollThroughBlocks()' class='cta-button'>У магазин</a>
+</section>
+
+<section id='stars'>
+  <img src='img/star_ceiling_captioned.png' alt='Зоряне небо'>
+</section>
+
+<section id='delivery'>
+  <img src='img/02fd4ddc-0b5c-41a1-ad31-092e53000971.png' alt='Доставка'>
+</section>
+
+<section id='order'>
+  <h2>Залишити заявку</h2>
+  <form action='' method='POST'>
+    <label for='quantity'>Обрати кількість</label>
+    <select name='quantity' id='quantity' required>
+      <option value='1'>1</option>
+      <option value='2'>2</option>
+      <option value='3'>3</option>
+      <option value='4+'>4+</option>
+    </select>
+
+    <label for='name'>Ваше ім’я</label>
+    <input type='text' id='name' name='name' required placeholder='Ім’я'>
+
+    <label for='phone'>Ваш номер телефону</label>
+    <input type='tel' id='phone' name='phone' required placeholder='+38 ___ ___ __ __'>
+
+    <button type='submit'>ЗАМОВИТИ ЗАРАЗ</button>
+  </form>
+</section>
+
+<script>
+  function scrollThroughBlocks() {
+    const sections = ['stars', 'delivery', 'order'];
+    let i = 0;
+    function scrollNext() {
+      if (i >= sections.length) return;
+      document.getElementById(sections[i]).scrollIntoView({ behavior: 'smooth' });
+      i++;
+      setTimeout(scrollNext, 1500);
+    }
+    scrollNext();
+  }
+</script>
+
+</body>
+</html>
